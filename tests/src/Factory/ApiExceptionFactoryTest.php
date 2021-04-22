@@ -124,5 +124,6 @@ class ApiExceptionFactoryTest extends AbstractApiResourceGroupTestCase
         self::assertEquals(400, $exception->getStatusCode());
         self::assertEquals($response->errorMsg, $exception->getErrorResponse()->errorMsg);
         self::assertFalse($exception->getErrorResponse()->success);
+        self::assertStringContainsString($exception->getMessage(), (string) $exception);
     }
 }
